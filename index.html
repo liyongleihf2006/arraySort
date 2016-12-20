@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <script src="arraySort.js"></script>
+    <script>
+        var arr=[];
+        for(var i=0;i<100;i++){
+            arr.push({name:Math.floor(Math.random()*20),age:Math.floor(Math.random()*20)});
+        };
+        console.log(arr);
+        /*
+        * 在chrome中使用原生的数组排序的结果是不准确的
+        * */
+        console.log(arr.sort(function(a,b){
+            return a.age< b.age;
+        }));
+        /*
+        * 使用arraySort排序
+        * */
+        /*
+        * 判断是否是webkit内核
+        * */
+        if(navigator.userAgent.toLowerCase().indexOf('applewebkit/')!=-1){
+            console.log(arraySort(arr,"desc",function(item){
+                return item.age;
+            }));
+        }else{
+            console.log("非webkit内核使用原生排序就可以了");
+        };
+    </script>
+</body>
+</html>
