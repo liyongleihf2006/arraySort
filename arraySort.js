@@ -48,7 +48,7 @@ function arraySort(){
         var bigger=[];
         var base=[array[0]];
         for(;i<length;i++){
-            if(comparisonFunction(array[i])<=comparisonFunction(base[0])){
+            if(typeof comparisonFunction(array[i]) == "undefined"||comparisonFunction(array[i])<=comparisonFunction(base[0])){
                 smaller.push(array[i]);
             }else{
                 bigger.push(array[i]);
